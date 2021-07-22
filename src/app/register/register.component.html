@@ -1,14 +1,20 @@
 <div class="container">
-    <h1>{{aim}}</h1>
+    
     <div class="login-div">
         <div class="row">
             <div class="col"></div>
             <div class="col" style=" background-color: white; border: 2px solid black;;">
-                <h2 style="text-align: center; color: rgb(66, 85, 85);">Login</h2>
-                <form (ngSubmit)="login()">
+                
+                <h2 style="text-align: center; color: rgb(66, 85, 85);">Register</h2>
+                <form (ngSubmit)="register()">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control"name="acno" id="acno" [(ngModel)]="acno" placeholder="Account Number"
+                    
+                    <input type="text" class="form-control" name="acno" id="acno" [(ngModel)]="acno" placeholder="Account Number"
                         aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="uname" id="uname" [(ngModel)]="uname"  placeholder="Username"
+                        aria-label="username" aria-describedby="basic-addon2">
                 </div>
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" name="pswd" id="pwd" [(ngModel)]="pswd"  placeholder="password"
@@ -18,8 +24,7 @@
                     <p style="color: red;" id="error"></p>
                 </div>
                 <div class="input-group mb-3 login-btn-center">
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <a routerLink="register">Sign UP</a>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </div>
             </form>
             </div>
