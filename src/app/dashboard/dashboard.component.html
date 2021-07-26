@@ -1,1 +1,66 @@
-<p>dashboard works!</p>
+
+<div class="container">
+<h1 id="head1">Welcome User</h1>    
+    <div class="login-div">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" style=" background-color: white; border: 2px solid black;;">
+                
+                <h2 style="text-align: center; color: rgb(66, 85, 85);">Deposite Form</h2>
+                <form (ngSubmit)="deposit()">
+                <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" name="acno" id="acno" [(ngModel)]="acno" placeholder="Account Number"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="pswd" id="pswd" [(ngModel)]="pswd"  placeholder="Password"
+                        aria-label="username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="amount" id="amount" [(ngModel)]="amount"  placeholder="Amount"
+                        aria-label="username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <p style="color: red;" id="error"></p>
+                </div>
+                <div class="input-group mb-3 login-btn-center">
+                    <button type="submit" class="btn btn-primary">Deposit</button>
+                </div>
+            </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="login-div">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" style=" background-color: white; border: 2px solid black;;">
+                
+                <h2 style="text-align: center; color: rgb(66, 85, 85);">Withdraw Form</h2>
+                <form (ngSubmit)="withdraw()">
+                <div class="input-group mb-3">
+                    
+                    <input type="text" class="form-control" name="acno1" id="acno1" [(ngModel)]="acno1" placeholder="Account Number"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="pswd1" id="pswd1" [(ngModel)]="pswd1"  placeholder="Username"
+                        aria-label="password" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="amount1" id="amount1" [(ngModel)]="amount1"  placeholder="Username"
+                        aria-label="username" aria-describedby="basic-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <p style="color: red;" id="error"></p>
+                </div>
+                <div class="input-group mb-3 login-btn-center">
+                    <button type="submit" class="btn btn-primary">Withdraw</button>
+                </div>
+            </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
