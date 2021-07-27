@@ -49,9 +49,10 @@ export class DataService {
   }
   deposit(acno:any,pswd:any,amount:any){
     let accdetails = this.users
+    var amt = parseInt(amount)
     if(acno in accdetails){
       if(pswd == accdetails[acno]["password"]){
-        accdetails[acno]["balance"]+=amount
+        accdetails[acno]["balance"]+=amt
         return accdetails[acno]["balance"]
       }
       else{
@@ -64,4 +65,28 @@ export class DataService {
       return false
     }
   }
+  withdraw(acno:any,pswd:any,amount:any){
+    let accdetails = this.users
+    var amt = parseInt(amount)
+    if(acno in accdetails){
+      if(pswd == accdetails[acno]["password"]){
+        if(accdetails[acno]["balance"]>amt){
+        accdetails[acno]["balance"]-=amt
+        return accdetails[acno]["balance"]
+      }
+      else{
+        alert("insufficient balance")
+        return false
+      }
+    }
+    else{
+      alert("invalid password")
+      return false
+    }
+  }
+  else{
+    alert("invalid account number")
+    return false
+  }
+}
 }

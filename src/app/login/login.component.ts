@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -13,47 +14,31 @@ export class LoginComponent implements OnInit {
 
   acno = "Account Number Please"
   pswd = ""
+  loginForm = this.fb.group({
 
-  
-  constructor(private router:Router,private ds: DataService) { }
+    acno: ['', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(4)]],
+    pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
+  })
+
+
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
-  
+
   login() {
-   // console.log(a);
-    
-    var acno = this.acno;
-   // console.log(acno);
-    
-    var pswd = this.pswd;
-    //console.log(pswd);
-    
-    var result=this.ds.login(acno,pswd)
-    if(result){
-      alert("login successfully")
-      this.router.navigateByUrl("dashboard")
+    if (this.loginForm.valid) {
+      var acno = this.loginForm.value.acno;
+      var pswd = this.loginForm.value.pswd;
+      var result = this.ds.login(acno, pswd)
+      if (result) {
+        alert("login successfully")
+        this.router.navigateByUrl("dashboard")
+      }
+    }
+    else {
+      alert("invalid form")
     }
   }
 }
 
-//   login() {
-//     var acno = this.acno;
-//     var pswd = this.pswd;
-//     let accDetails = this.users;
-
-//     if (acno in accDetails) {
-
-//       if (pswd == accDetails[acno]["password"]) {
-//         alert("login succesfull")
-//       }
-//       else {
-//         alert("invalid password")
-//       }
-//     }
-//     else {
-//       alert("invalid Account number")
-//     }
-//   }
-
-// }
